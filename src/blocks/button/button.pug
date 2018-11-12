@@ -1,0 +1,8 @@
+mixin button(text)
+
+  //- Принимает:
+    //-   text    {string} - текст кнопки
+  //- Вызов:
+      +btn('Кнопка-ссылка')(href='/')
+
+  a.button(target="_blank" rel="noopener")&attributes(attributes)!= text

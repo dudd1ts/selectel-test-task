@@ -1,0 +1,137 @@
+// В этом файле должны быть стили для БЭМ-блока slider, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.slider
+  position: relative
+  color: #ffffff
+  height 568px
+  overflow-y: hidden
+
+  &__slide
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 1
+    height 568px
+    width: 100%
+    padding: 120px 0 75px
+    opacity: 0
+    visibility: hidden
+    transition: opacity .6s step-end, visibility .6s step-end
+
+    &--active
+      z-index: 2
+      opacity: 1
+      visibility: visible
+      transition: opacity .6s ease, visibility .6s ease
+
+    &--blue
+      background: linear-gradient(180deg, #2F3F66 0%, #314579 100%);
+
+    &--grey-blue
+      background: linear-gradient(180deg, #2F4966 0%, #34557C 100%);
+
+    &--green
+      background: linear-gradient(180deg, #2F6066 0%, #327179 100%);
+
+    &--purple
+      background: linear-gradient(180deg, #4E2F66 0%, #603285 100%);
+
+    @media (min-width: $screen-lg)
+      height: 600px
+      padding: 136px 0 50px
+
+  &__title
+    max-width: 752px
+    margin: 0
+    padding: 0 0 32px
+    font: 600 32px/40px Montserrat, Arial, sans-serif
+
+    &--vmware
+      max-width: 600px
+
+    &--tier3
+      max-width: 650px
+
+    @media (min-width: $screen-lg)
+      font-size: 40px
+      line-height: 48px
+      padding-bottom: 40px
+
+
+  &__description
+    display: none
+    max-width: 576px
+    padding-bottom: 40px
+    font-size: 16px
+    line-height: 24px
+
+    &--tier3
+      max-width: 550px
+
+    @media (min-width: $screen-lg)
+      display block
+
+  &__dots
+    display: none
+    position: absolute
+    bottom: 40px
+    z-index: 10
+    width: 100%
+    justify-content: center
+
+    @media (min-width: $screen-lg)
+      display: flex
+
+  &__dot
+    width 8px
+    height 8px
+    margin: 0 4px;
+    border: 1px solid #ffffff
+    border-radius: 100%
+    cursor: pointer
+    opacity: .6
+    transition: opacity $transition
+
+    &:hover
+      opacity 1
+
+    &--active
+      background-color: #ffffff
+      opacity 1
+
+  &__arrows
+    width: 100%
+    position: absolute
+    bottom: 20px
+    z-index: 100
+
+    @media (min-width: $screen-lg)
+      display none
+
+  &__arrows-wrapper
+    display: flex
+
+  &__arrow-btn
+    display block
+    border: none
+    background: none
+    padding: 10px
+    margin: 4px
+    cursor: pointer
+    opacity-transition()
+
+    &::before
+      content: '';
+      display block
+      width: 0;
+      height: 0;
+      border-top: 14px solid transparent;
+      border-bottom: 14px solid transparent;
+
+    &--prev::before
+      border-right: 28px solid #ffffff;
+
+    &--next::before
+      border-left: 28px solid #ffffff;

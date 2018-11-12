@@ -1,0 +1,16 @@
+// В этом файле должны быть стили для БЭМ-блока button, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.button
+  display: inline-block
+  padding: 16px 40px
+  border-radius: 4px
+  background: #ff0000
+  font: 500 16px/24px Montserrat, Arial, sans-serif
+  color: #ffffff
+  text-decoration: none
+  transition: background-color $transition
+
+  &:hover
+    background-color: #d70000
