@@ -12,9 +12,9 @@ ready(function(){
   if (slider) {
     let dotsWrapper = slider.querySelector('.slider__dots');
     let slides = [];
-    for (let item of slider.children) {
-      if (hasClass(item, 'slider__slide')) {
-        slides.push(item);
+    for (let i = 0; i < slider.children.length; i++) {
+      if (hasClass(slider.children[i], 'slider__slide')) {
+        slides.push(slider.children[i]);
       }
     }
 
