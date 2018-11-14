@@ -1,0 +1,121 @@
+// В этом файле должны быть стили для БЭМ-блока configurations, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.configurations
+  padding: 80px 0
+
+  @media (min-width: $screen-lg)
+    padding: 120px 0
+
+  &__title
+    margin: 0
+    padding: 0 0 48px
+    font-family: Montserrat, Arial, sans-serif
+    font-weight: 600
+    font-size: 32px
+    line-height: 40px
+    text-align: center
+
+    @media (min-width: $screen-lg)
+      font-size: 40px
+      line-height: 48px
+
+
+  &__headers
+    display: none
+
+    @media (min-width: $screen-lg)
+      display: flex
+
+
+  &__header
+    padding: 0 0 16px 42px
+    opacity: .8
+
+    &--cpu
+      width 288px
+
+    &--hdd
+    &--ram
+      width 192px
+
+  &__item
+    display: flex
+    flex-direction: column
+    margin-bottom: 16px
+    padding: 24px 24px 24px 40px
+    border: 2px solid rgba(0, 0, 0, 0.8)
+    border-radius: 8px
+
+
+    @media (min-width: $screen-lg)
+      margin-bottom: 24px
+      flex-direction: row
+      align-items: center
+
+      &:last-child
+        margin-bottom: 0
+
+    &:last-child
+        margin-bottom: 0
+
+
+  &__cell
+    padding-bottom: 16px
+    font-size: 18px
+    line-height: 24px
+
+    &:last-child
+      padding-bottom: 0
+
+    @media (min-width: $screen-lg)
+      padding-bottom: 0
+      line-height: 21px
+
+    &--cpu
+      width 288px
+      padding-right: 115px
+
+    &--hdd
+    &--ram
+      width 192px
+
+    &--order
+      @media (min-width: $screen-lg)
+        display: flex
+        flex-grow: 1
+        justify-content: flex-end
+
+  &__cell-title
+    display: block
+    font-size: 16px
+    opacity: .8
+
+    @media (min-width: $screen-lg)
+      display: none
+
+  &__loader
+    display block
+    width: 68px
+    height: 68px
+    margin: 10px auto
+    background: url('../img/loader.svg') no-repeat 50%;
+    background-size: 68px 68px
+    // animateTransform из файла loader.svg была заменена на СSS анимамацию
+    // для поддержки EDGE и IE
+    animation: loader 1s linear infinite;
+
+  &__error
+    font-family: Montserrat, Arial, sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    margin: 10px auto
+
+@keyframes loader
+  from
+    transform: rotate(0)
+  to
+    transform: rotate(360deg)

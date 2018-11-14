@@ -9,11 +9,15 @@
   "author": "Sergey Kondrashev",
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.1.5",
+    "@babel/preset-env": "^7.1.5",
     "autoprefixer": "^9.0.2",
+    "babel-polyfill": "^6.26.0",
     "browser-sync": "^2.14.0",
     "css-mqpacker": "^7.0.0",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
+    "gulp-babel": "^8.0.0",
     "gulp-cleancss": "^0.2.2",
     "gulp-concat": "^2.6.0",
     "gulp-gh-pages": "git+https://github.com/nicothin/gulp-gh-pages.git",
@@ -37,5 +41,9 @@
     "ttf2woff": "^2.0.1",
     "ttf2woff2": "^2.0.3",
     "vinyl-buffer": "^1.0.0"
+  },
+  "dependencies": {
+    "es6-shim": "^0.35.4",
+    "promise-polyfill": "8.1.0"
   }
 }

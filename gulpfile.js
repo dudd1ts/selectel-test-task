@@ -29,6 +29,7 @@ const pug = require('gulp-pug');
 const wait = require('gulp-wait');
 const htmlbeautify = require('gulp-html-beautify');
 const stylus = require('gulp-stylus');
+const babel = require('gulp-babel');
 
 // Перечисление и настройки плагинов postCSS, которыми обрабатываются стилевые файлы
 let postCssPlugins = [
@@ -49,6 +50,8 @@ let images = [
 
 // Cписок обрабатываемых файлов в указанной последовательности
 let jsList = [
+  dirs.source + '/js/promise.polyfill.min.js',
+  dirs.source + '/blocks/**/*.js',
   dirs.source + '/js/script.js'
 ];
 
@@ -139,8 +142,7 @@ gulp.task('img:opt', function (callback) {
 gulp.task('clean', function () {
   return del([
     dirs.build + '/**/*',
-    '!' + dirs.build + '/readme.md',
-    dirs.source + '/blocks/sprite-png/img',
+    '!' + dirs.build + '/readme.md'
   ]);
 });
 
@@ -150,6 +152,7 @@ gulp.task('js', function () {
     return gulp.src(jsList)
       .pipe(plumber({ errorHandler: onError }))             // не останавливаем автоматику при ошибках
       .pipe(concat('script.min.js'))                        // конкатенируем все файлы в один с указанным именем
+      .pipe(babel({presets: ['@babel/preset-env']}))        // полифилим
       .pipe(uglify())                                       // сжимаем
       .pipe(gulp.dest(dirs.build + '/js'));                 // записываем
   }
