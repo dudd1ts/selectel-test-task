@@ -193,6 +193,10 @@ img {
   padding: 40px 0;
   -webkit-transition: background-color 0.3s ease;
   transition: background-color 0.3s ease;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 .page-header__inner {
   display: -webkit-box;
@@ -206,6 +210,7 @@ img {
           align-items: center;
 }
 .page-header__logo {
+  display: block;
   width: 113px;
   height: 24px;
   background: url("../img/selectel-logo.svg") no-repeat 50%;
@@ -216,6 +221,10 @@ img {
   opacity: 0.8;
 }
 .page-header__phone {
+  display: block;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
   width: 22px;
   height: 22px;
   font-size: 20px;
@@ -485,7 +494,8 @@ img {
   }
   .page-header__phone {
     width: auto;
-    text-indent: 38px;
+    padding-left: 38px;
+    text-indent: 0;
   }
   .slider__slide {
     height: 600px;
