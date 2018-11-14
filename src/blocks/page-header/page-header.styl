@@ -11,6 +11,7 @@
   width: 100%
   padding: 40px 0
   transition: background-color $transition
+  flex-direction: row
 
   &__inner
     display: flex
@@ -18,12 +19,15 @@
     align-items: center
 
   &__logo
+    display block
     width: 113px
     height: 24px
     background: url('../img/selectel-logo.svg') no-repeat 50%
     opacity-transition()
 
   &__phone
+    display: block
+    flex-grow: 0
     width 22px
     height 22px
     font-size: 20px
@@ -39,5 +43,6 @@
 
     @media (min-width: $screen-lg)
       width: auto
-      text-indent: 38px
+      padding-left: 38px
+      text-indent: 0
 
